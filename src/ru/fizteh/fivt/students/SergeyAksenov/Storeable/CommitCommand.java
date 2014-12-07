@@ -14,6 +14,5 @@ public class CommitCommand implements Command {
         }
         int keyNum = table.commit();
         System.out.println(keyNum + " keys saved.");
-
     }
 }

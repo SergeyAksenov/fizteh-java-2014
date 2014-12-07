@@ -199,6 +199,4 @@ public class MyStoreableTest {
         stor.setColumnAt(6, "some");
         assertEquals("some", stor.getStringAt(6));
     }
-
-
 }
