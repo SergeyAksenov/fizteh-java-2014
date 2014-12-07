@@ -54,8 +54,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Integer)) {
+        if (!(typeList[columnIndex].isInstance(new Integer(0)))) {
             throw new ColumnFormatException("Storeable: cannot cast to Integer");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (Integer) dataList[columnIndex];
     }
@@ -65,8 +68,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Long)) {
+        if (!(typeList[columnIndex].isInstance(new Long(0)))) {
             throw new ColumnFormatException("Storeable: cannot cast to Long");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (Long) dataList[columnIndex];
     }
@@ -76,8 +82,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Byte)) {
+        if (!typeList[columnIndex].isInstance(new Byte("1"))) {
             throw new ColumnFormatException("Storeable: cannot cast to Byte");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (Byte) dataList[columnIndex];
     }
@@ -87,8 +96,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Float)) {
+        if (!typeList[columnIndex].isInstance(new Float(0))) {
             throw new ColumnFormatException("Storeable: cannot cast to Float");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (Float) dataList[columnIndex];
     }
@@ -98,8 +110,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Double)) {
+        if (!(typeList[columnIndex].isInstance(new Double(0)))) {
             throw new ColumnFormatException("Storeable: cannot cast to Double");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (Double) dataList[columnIndex];
     }
@@ -109,8 +124,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Boolean)) {
+        if (!(typeList[columnIndex].isInstance(new Boolean(true)))) {
             throw new ColumnFormatException("Storeable: cannot cast to Boolean");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (Boolean) dataList[columnIndex];
     }
@@ -120,8 +138,11 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(dataList[columnIndex] instanceof Integer)) {
+        if (!(typeList[columnIndex].isInstance(new String("")))) {
             throw new ColumnFormatException("Storeable: cannot cast to String");
+        }
+        if (dataList[columnIndex] == null) {
+            return null;
         }
         return (String) dataList[columnIndex];
     }

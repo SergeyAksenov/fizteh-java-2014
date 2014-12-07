@@ -107,7 +107,8 @@ public class StoreableTableProvider implements TableProvider {
 
     public Storeable deserialize(Table table, String value)
             throws ParseException {
-        return Executor.parseString(value, tables.get(table.getName()));
+        MyStoreable ret =  Executor.parseString(value, tables.get(table.getName()));
+        return ret;
     }
 
     public String serialize(Table table, Storeable value)
