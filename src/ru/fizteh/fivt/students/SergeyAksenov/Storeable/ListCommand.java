@@ -18,7 +18,7 @@ public class ListCommand implements Command {
         for (String key : list) {
             System.out.print(key);
             if (!key.equals(list.get(list.size() - 1))) {
-                System.out.print(" ,");
+                System.out.print(", ");
             }
         }
         System.out.println();

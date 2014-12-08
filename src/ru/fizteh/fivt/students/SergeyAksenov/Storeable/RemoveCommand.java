@@ -18,7 +18,7 @@ public class RemoveCommand implements Command {
                 System.out.println("not found");
                 return;
             }
-            System.out.println(value);
+            value.print();
         }
     }
 }

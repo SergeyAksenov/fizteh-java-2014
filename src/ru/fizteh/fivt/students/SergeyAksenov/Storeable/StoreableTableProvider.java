@@ -77,7 +77,9 @@ public class StoreableTableProvider implements TableProvider {
             throw new IllegalStateException(name + "does not exist");
         }
         Executor.delete(tableDir);
-        usingTable = null;
+        if (usingTable.getName().equals(name)) {
+            usingTable = null;
+        }
         tables.remove(name);
     }
 
