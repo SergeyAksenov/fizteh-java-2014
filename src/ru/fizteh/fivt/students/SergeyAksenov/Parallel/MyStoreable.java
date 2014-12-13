@@ -54,7 +54,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].getClass().equals(Integer.class))) {
+        if (!(typeList[columnIndex].equals(Integer.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Integer");
         }
         if (dataList[columnIndex] == null) {
@@ -68,7 +68,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].getClass().equals(Long.class))) {
+        if (!(typeList[columnIndex].equals(Long.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Long");
         }
         if (dataList[columnIndex] == null) {
@@ -82,7 +82,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!typeList[columnIndex].getClass().equals(Byte.class)) {
+        if (!typeList[columnIndex].equals(Byte.class)) {
             throw new ColumnFormatException("Storeable: cannot cast to Byte");
         }
         if (dataList[columnIndex] == null) {
@@ -96,7 +96,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!typeList[columnIndex].getClass().equals(Float.class)) {
+        if (!typeList[columnIndex].equals(Float.class)) {
             throw new ColumnFormatException("Storeable: cannot cast to Float");
         }
         if (dataList[columnIndex] == null) {
@@ -110,7 +110,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].getClass().equals(Double.class))) {
+        if (!(typeList[columnIndex].equals(Double.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Double");
         }
         if (dataList[columnIndex] == null) {
@@ -124,7 +124,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].getClass().equals(Boolean.class))) {
+        if (!(typeList[columnIndex].equals(Boolean.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Boolean");
         }
         if (dataList[columnIndex] == null) {
@@ -138,7 +138,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].getClass().equals(String.class))) {
+        if (!(typeList[columnIndex].equals(String.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to String");
         }
         if (dataList[columnIndex] == null) {
