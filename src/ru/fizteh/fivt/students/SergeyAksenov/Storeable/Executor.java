@@ -42,16 +42,15 @@ public class Executor {
 
     public static void interactiveMode(
             final HashMap<String, Command> commandMap,
-            StoreableTableProvider tableProvider) {
+            StoreableTableProvider tableProvider)
+            throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
-            while (true) {
+            while (scanner.hasNextLine()) {
                 System.out.print("$ ");
-                if (!scanner.hasNextLine()) {
-                    System.exit(0);
-                }
                 String command = scanner.nextLine();
                 execLine(command, commandMap, tableProvider);
             }
+            throw new Exception();
         } catch (NoSuchElementException e) {
             System.err.println(e.getMessage());
             System.exit(-1);

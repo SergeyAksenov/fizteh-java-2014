@@ -1,6 +1,8 @@
 package ru.fizteh.fivt.students.SergeyAksenov.Storeable;
 
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.List;
 
 public class ListCommand implements Command {
@@ -15,12 +17,6 @@ public class ListCommand implements Command {
             return;
         }
         List<String> list = currentTable.list();
-        for (String key : list) {
-            System.out.print(key);
-            if (!key.equals(list.get(list.size() - 1))) {
-                System.out.print(" ,");
-            }
-        }
-        System.out.println();
+        System.out.println(StringUtils.join(list, ", "));
     }
 }

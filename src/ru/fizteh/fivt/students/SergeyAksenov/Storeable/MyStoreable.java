@@ -1,9 +1,11 @@
 package ru.fizteh.fivt.students.SergeyAksenov.Storeable;
 
+import com.sun.deploy.util.StringUtils;
 import ru.fizteh.fivt.storage.structured.ColumnFormatException;
 import ru.fizteh.fivt.storage.structured.Storeable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MyStoreable implements Storeable {
@@ -54,7 +56,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].isInstance(new Integer(0)))) {
+        if (!(typeList[columnIndex].equals(Integer.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Integer");
         }
         if (dataList[columnIndex] == null) {
@@ -68,7 +70,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].isInstance(new Long(0)))) {
+        if (!(typeList[columnIndex].equals(Long.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Long");
         }
         if (dataList[columnIndex] == null) {
@@ -82,7 +84,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!typeList[columnIndex].isInstance(new Byte("1"))) {
+        if (!typeList[columnIndex].equals(Byte.class)) {
             throw new ColumnFormatException("Storeable: cannot cast to Byte");
         }
         if (dataList[columnIndex] == null) {
@@ -96,7 +98,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!typeList[columnIndex].isInstance(new Float(0))) {
+        if (!typeList[columnIndex].equals(Float.class)) {
             throw new ColumnFormatException("Storeable: cannot cast to Float");
         }
         if (dataList[columnIndex] == null) {
@@ -110,7 +112,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].isInstance(new Double(0)))) {
+        if (!(typeList[columnIndex].equals(Double.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Double");
         }
         if (dataList[columnIndex] == null) {
@@ -124,7 +126,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].isInstance(new Boolean(true)))) {
+        if (!(typeList[columnIndex].equals(Boolean.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to Boolean");
         }
         if (dataList[columnIndex] == null) {
@@ -138,7 +140,7 @@ public class MyStoreable implements Storeable {
         if (columnIndex < 0 || columnIndex >= typeList.length) {
             throw new IndexOutOfBoundsException("Storeable: invalid index");
         }
-        if (!(typeList[columnIndex].isInstance(new String("")))) {
+        if (!(typeList[columnIndex].equals(String.class))) {
             throw new ColumnFormatException("Storeable: cannot cast to String");
         }
         if (dataList[columnIndex] == null) {
@@ -156,17 +158,8 @@ public class MyStoreable implements Storeable {
     }
 
     public void print() {
-        System.out.print("[");
-        for (int i = 0; i < dataList.length; ++i) {
-            System.out.print(dataList[i]);
-            if (i < dataList.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.print("]");
-        System.out.println();
+        System.out.println("[" + StringUtils.join(Arrays.asList(dataList), ", ") + "]");
     }
-
     private Object[] dataList;
 
     private Class[] typeList;
