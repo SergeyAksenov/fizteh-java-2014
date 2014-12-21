@@ -1,5 +1,6 @@
 package ru.fizteh.fivt.students.SergeyAksenov.Parallel;
 
+import com.oracle.javafx.jmx.json.JSONException;
 import org.json.JSONArray;
 
 import java.io.File;
@@ -80,17 +81,21 @@ public class Executor {
             throw new IllegalArgumentException("Parser: illegal argument");
         }
         MyStoreable result = new MyStoreable(types);
-        JSONArray parser = new JSONArray(str);
-        for (int i = 0; i < parser.length(); ++i) {
-            try {
-                if (parser.get(i) == null) {
-                    result.setColumnAt(i, null);
-                } else {
-                    result.setColumnAt(i, types[i].cast(parser.get(i)));
+        try {
+            JSONArray parser = new JSONArray(str);
+            for (int i = 0; i < parser.length(); ++i) {
+                try {
+                    if (parser.get(i) == null) {
+                        result.setColumnAt(i, null);
+                    } else {
+                        result.setColumnAt(i, types[i].cast(parser.get(i)));
+                    }
+                } catch (ClassCastException e) {
+                    throw new ParseException(parser.get(i).toString(), 0);
                 }
-            } catch (ClassCastException e) {
-                throw new ParseException(parser.get(i).toString(), 0);
             }
+        } catch (JSONException e) {
+            return null;
         }
         return result;
     }
