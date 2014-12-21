@@ -48,7 +48,11 @@ public class StoreableTableProvider implements TableProvider {
         if (!tableDir.exists()) {
             return null;
         }
-        return new StoreableTable(name, tablePath, tables.get(name));
+        try {
+            return new StoreableTable(name, tablePath, tables.get(name));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Table createTable(String name, List<Class<?>> types) throws IllegalArgumentException {
@@ -64,7 +68,11 @@ public class StoreableTableProvider implements TableProvider {
             typeArray[i] = types.get(i);
         }
         tables.put(name, typeArray);
-        return new StoreableTable(name, tablePath, typeArray);
+        try {
+            return new StoreableTable(name, tablePath, tables.get(name));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public void removeTable(String name) throws IllegalArgumentException, IllegalStateException {

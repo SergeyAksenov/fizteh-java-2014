@@ -11,7 +11,8 @@ import java.util.*;
 
 public class StoreableTable implements Table {
 
-    public StoreableTable(String name, String path, Class[] types) {
+    public StoreableTable(String name, String path, Class[] types)
+            throws Exception{
         tablePath = Paths.get(path);
         File table = tablePath.toFile();
         changesCounter = 0;
@@ -23,15 +24,14 @@ public class StoreableTable implements Table {
             return;
         }
         if (!table.mkdir()) {
-            System.out.println("Cannot create directory for new table");
-            return;
+            throw new Exception("Cannot create directory for new table");
         }
         valueType = types;
         this.name = name;
         try {
             writeSignatures();
         } catch (IOException e) {
-            System.out.println("Cannot write signature to file");
+            throw new Exception("Cannot write signature to file");
         }
     }
 
@@ -91,7 +91,8 @@ public class StoreableTable implements Table {
         return new ArrayList<>(keySet);
     }
 
-    public int commit() {
+    public int commit()
+            throws IOException {
         try {
             clear();
             write();
@@ -99,8 +100,7 @@ public class StoreableTable implements Table {
             changesCounter = 0;
             return ret;
         } catch (Exception e) {
-            System.out.println("Error in writing to file");
-            return -1;
+            throw new IOException("Error in writing to file");
         }
     }
 
@@ -148,7 +148,6 @@ public class StoreableTable implements Table {
 
                 }
             } catch (Exception e) {
-                System.out.println("Error in reading");
                 return;
             }
         }
@@ -159,7 +158,6 @@ public class StoreableTable implements Table {
         outStream.writeInt(str.length());
         outStream.write(byteStr);
         outStream.flush();
-        //   outStream.close();
     }
 
     private void write() throws Exception {
