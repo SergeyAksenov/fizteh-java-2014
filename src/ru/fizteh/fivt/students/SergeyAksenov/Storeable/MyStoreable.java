@@ -1,6 +1,5 @@
 package ru.fizteh.fivt.students.SergeyAksenov.Storeable;
 
-import com.sun.deploy.util.StringUtils;
 import ru.fizteh.fivt.storage.structured.ColumnFormatException;
 import ru.fizteh.fivt.storage.structured.Storeable;
 
@@ -158,7 +157,12 @@ public class MyStoreable implements Storeable {
     }
 
     public void print() {
-        System.out.println("[" + StringUtils.join(Arrays.asList(dataList), ", ") + "]");
+        List<Object> tmp = Arrays.asList(dataList);
+        ArrayList<String> l = new ArrayList<>();
+        for (Object t : tmp) {
+            l.add(t.toString());
+        }
+        System.out.println("[" + String.join(", ", l) + "]");
     }
     private Object[] dataList;
 

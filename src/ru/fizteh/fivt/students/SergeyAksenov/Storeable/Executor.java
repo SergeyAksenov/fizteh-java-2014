@@ -45,10 +45,12 @@ public class Executor {
             StoreableTableProvider tableProvider)
             throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
-            while (scanner.hasNextLine()) {
-                System.out.print("$ ");
+            for (System.out.print("$ "), System.out.flush();
+                 scanner.hasNextLine();
+                 System.out.print("$ "), System.out.flush()) {
                 String command = scanner.nextLine();
                 execLine(command, commandMap, tableProvider);
+                System.out.flush();
             }
             throw new Exception();
         } catch (NoSuchElementException e) {
