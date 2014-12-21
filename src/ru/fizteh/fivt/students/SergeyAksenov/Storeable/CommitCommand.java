@@ -2,7 +2,7 @@ package ru.fizteh.fivt.students.SergeyAksenov.Storeable;
 
 
 public class CommitCommand implements Command {
-    public void run(String[] args, StoreableTableProvider tableProvider) {
+    public void run(String[] args, StoreableTableProvider tableProvider) throws Exception {
         if (!Executor.checkArgNumber(1, args.length, 1)) {
             System.out.println("Invalid number of arguments");
             return;

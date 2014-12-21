@@ -17,7 +17,8 @@ public class Executor {
 
     public static void execute(final HashMap<String, Command> commandMap,
                                final String[] commands,
-                               StoreableTableProvider tableProvider) {
+                               StoreableTableProvider tableProvider)
+            throws Exception {
         if (commands[0].equals("")) {
             return;
         }
@@ -31,7 +32,8 @@ public class Executor {
 
     public static void execLine(String line,
                                 final HashMap<String, Command> commandMap,
-                                StoreableTableProvider tableProvider) {
+                                StoreableTableProvider tableProvider)
+            throws Exception {
         String[] commands = line.trim().split(";");
         for (String command : commands) {
             command = command.trim();
