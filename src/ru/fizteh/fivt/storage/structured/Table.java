@@ -22,7 +22,7 @@ public interface Table extends Index {
      * возвращает null.
      *
      * @throws IllegalArgumentException Если значение параметров key или value является null.
-     * @throws ColumnFormatException - при попытке передать Storeable с колонками другого типа.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - при попытке передать Storeable с колонками другого типа.
      */
     Storeable put(String key, Storeable value) throws ColumnFormatException;
 

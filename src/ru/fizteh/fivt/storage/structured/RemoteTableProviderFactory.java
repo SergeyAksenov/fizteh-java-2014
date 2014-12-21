@@ -9,11 +9,11 @@ import java.io.IOException;
  */
 public interface RemoteTableProviderFactory {
     /**
-     * Возвращает {@link RemoteTableProvider} для работы с удаленных хранилищем.
+     * Возвращает {@link ru.fizteh.fivt.storage.structured.RemoteTableProvider} для работы с удаленных хранилищем.
      *
      * @param hostname Имя узла, на котором работает TCP-сервер хранилища.
      * @param port Порт, на котором работает TCP-сервер хранилища.
-     * @return Remote-{@link RemoteTableProvider}, который подключен к TCP-серверу хранилища по заданному адресу.
+     * @return Remote-{@link ru.fizteh.fivt.storage.structured.RemoteTableProvider}, который подключен к TCP-серверу хранилища по заданному адресу.
      *
      * @throws IllegalArgumentException В случае некорректных входных параметров.
      * @throws java.io.IOException В случае ошибок ввода/вывода.

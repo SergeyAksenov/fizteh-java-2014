@@ -1,11 +1,11 @@
 package ru.fizteh.fivt.storage.structured;
 
 /**
- * Список фиксированной структуры, строка таблицы {@link Table}.
+ * Список фиксированной структуры, строка таблицы {@link ru.fizteh.fivt.storage.structured.Table}.
  *
  * Нумерация колонок с нуля. Позиция в списке соответствует колонке таблицы под тем же номером.
  *
- * С помощью {@link TableProvider} может быть сериализован или десериализован.
+ * С помощью {@link ru.fizteh.fivt.storage.structured.TableProvider} может быть сериализован или десериализован.
  *
  * Для получения объекта из нужной колонки воспользуйтесь соответствующим геттером.
  * Для установки объекта а колонку воспользуйтесь {@link #setColumnAt(int, Object)} .
@@ -18,7 +18,7 @@ public interface Storeable {
      * @param value - значение, которое нужно установить.
      *              Может быть null.
      *              Тип значения должен соответствовать декларированному типу колонки.
-     * @throws ColumnFormatException - Тип значения не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Тип значения не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     void setColumnAt(int columnIndex, Object value) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -35,7 +35,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к Integer.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к Integer. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     Integer getIntAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -44,7 +44,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к Long.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к Long. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     Long getLongAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -53,7 +53,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к Byte.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к Byte. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     Byte getByteAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -62,7 +62,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к Float.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к Float. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     Float getFloatAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -71,7 +71,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к Double.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к Double. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     Double getDoubleAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -80,7 +80,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к Boolean.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к Boolean. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     Boolean getBooleanAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;
@@ -89,7 +89,7 @@ public interface Storeable {
      * Возвращает значение из данной колонки, приведя его к String.
      * @param columnIndex - индекс колонки в таблице, начиная с нуля
      * @return - значение в этой колонке, приведенное к String. Может быть null.
-     * @throws ColumnFormatException - Запрошенный тип не соответствует типу колонки.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException - Запрошенный тип не соответствует типу колонки.
      * @throws IndexOutOfBoundsException - Неверный индекс колонки.
      */
     String getStringAt(int columnIndex) throws ColumnFormatException, IndexOutOfBoundsException;

@@ -3,7 +3,7 @@ package ru.fizteh.fivt.storage.structured;
 import java.io.IOException;
 
 /**
- * Представляет интерфейс для создание экземпляров {@link TableProvider}.
+ * Представляет интерфейс для создание экземпляров {@link ru.fizteh.fivt.storage.structured.TableProvider}.
  *
  * Предполагается, что реализация интерфейса фабрики будет иметь публичный конструктор без параметров.
  */

@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.util.List;
 
 /**
- * Управляющий класс для работы с {@link Table таблицами}
+ * Управляющий класс для работы с {@link ru.fizteh.fivt.storage.structured.Table таблицами}
  *
  * Предполагает, что актуальная версия с устройства хранения, сохраняется при создании
  * экземпляра объекта. Далее ввод-вывод выполняется только в момент создания и удаления
@@ -57,42 +57,42 @@ public interface TableProvider {
     void removeTable(String name) throws IOException;
 
     /**
-     * Преобразовывает строку в объект {@link Storeable}, соответствующий структуре таблицы.
+     * Преобразовывает строку в объект {@link ru.fizteh.fivt.storage.structured.Storeable}, соответствующий структуре таблицы.
      *
-     * @param table Таблица, которой должен принадлежать {@link Storeable}.
-     * @param value Строка, из которой нужно прочитать {@link Storeable}.
-     * @return Прочитанный {@link Storeable}.
+     * @param table Таблица, которой должен принадлежать {@link ru.fizteh.fivt.storage.structured.Storeable}.
+     * @param value Строка, из которой нужно прочитать {@link ru.fizteh.fivt.storage.structured.Storeable}.
+     * @return Прочитанный {@link ru.fizteh.fivt.storage.structured.Storeable}.
      *
-     * @throws ParseException - при каких-либо несоответстиях в прочитанных данных.
+     * @throws java.text.ParseException - при каких-либо несоответстиях в прочитанных данных.
      */
     Storeable deserialize(Table table, String value) throws ParseException;
 
     /**
-     * Преобразовывает объект {@link Storeable} в строку.
+     * Преобразовывает объект {@link ru.fizteh.fivt.storage.structured.Storeable} в строку.
      *
-     * @param table Таблица, которой должен принадлежать {@link Storeable}.
-     * @param value {@link Storeable}, который нужно записать.
+     * @param table Таблица, которой должен принадлежать {@link ru.fizteh.fivt.storage.structured.Storeable}.
+     * @param value {@link ru.fizteh.fivt.storage.structured.Storeable}, который нужно записать.
      * @return Строка с записанным значением.
      *
-     * @throws ColumnFormatException При несоответствии типа в {@link Storeable} и типа колонки в таблице.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException При несоответствии типа в {@link ru.fizteh.fivt.storage.structured.Storeable} и типа колонки в таблице.
      */
     String serialize(Table table, Storeable value) throws ColumnFormatException;
 
     /**
-     * Создает новый пустой {@link Storeable} для указанной таблицы.
+     * Создает новый пустой {@link ru.fizteh.fivt.storage.structured.Storeable} для указанной таблицы.
      *
-     * @param table Таблица, которой должен принадлежать {@link Storeable}.
-     * @return Пустой {@link Storeable}, нацеленный на использование с этой таблицей.
+     * @param table Таблица, которой должен принадлежать {@link ru.fizteh.fivt.storage.structured.Storeable}.
+     * @return Пустой {@link ru.fizteh.fivt.storage.structured.Storeable}, нацеленный на использование с этой таблицей.
      */
     Storeable createFor(Table table);
 
     /**
-     * Создает новый {@link Storeable} для указанной таблицы, подставляя туда переданные значения.
+     * Создает новый {@link ru.fizteh.fivt.storage.structured.Storeable} для указанной таблицы, подставляя туда переданные значения.
      *
-     * @param table Таблица, которой должен принадлежать {@link Storeable}.
+     * @param table Таблица, которой должен принадлежать {@link ru.fizteh.fivt.storage.structured.Storeable}.
      * @param values Список значений, которыми нужно проинициализировать поля Storeable.
-     * @return {@link Storeable}, проинициализированный переданными значениями.
-     * @throws ColumnFormatException При несоответствии типа переданного значения и колонки.
+     * @return {@link ru.fizteh.fivt.storage.structured.Storeable}, проинициализированный переданными значениями.
+     * @throws ru.fizteh.fivt.storage.structured.ColumnFormatException При несоответствии типа переданного значения и колонки.
      * @throws IndexOutOfBoundsException При несоответствии числа переданных значений и числа колонок.
      */
     Storeable createFor(Table table, List<?> values) throws ColumnFormatException, IndexOutOfBoundsException;

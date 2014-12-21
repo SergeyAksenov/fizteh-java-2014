@@ -1,7 +1,7 @@
 package ru.fizteh.fivt.storage.structured;
 
 /**
- * Дополнительный интерфейс к {@link ru.fizteh.fivt.storage.structured.TableProvider}, позволяющий создавать индексы на
+ * Дополнительный интерфейс к {@link TableProvider}, позволяющий создавать индексы на
  * основе имеющейся таблицы.
  */
 public interface IndexProvider extends TableProvider {
