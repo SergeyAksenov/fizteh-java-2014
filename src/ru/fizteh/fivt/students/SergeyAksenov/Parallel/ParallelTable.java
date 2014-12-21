@@ -13,7 +13,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ParallelTable implements Table {
 
-    public ParallelTable(String name, String path, Class[] types) {
+    public ParallelTable(String name, String path, Class[] types)
+            throws Exception {
         tableLocker.readLock().lock();
         tablePath = Paths.get(path);
         File table = tablePath.toFile();
@@ -26,9 +27,8 @@ public class ParallelTable implements Table {
         }
         data = new HashMap<>();
         if (!table.mkdir()) {
-            System.out.println("Cannot create directory for new table");
             tableLocker.readLock().unlock();
-            return;
+            throw new Exception("Cannot create directory");
         }
         valueType = types;
         this.name = name;

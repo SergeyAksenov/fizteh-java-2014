@@ -52,7 +52,11 @@ public class ParallelTableProvider implements TableProvider {
             if (!tableDir.exists()) {
                 return null;
             }
-            return new ParallelTable(name, tablePath, tables.get(name));
+            try {
+                return new ParallelTable(name, tablePath, tables.get(name));
+            } catch (Exception e) {
+                return null;
+            }
         } finally {
             locker.readLock().unlock();
         }
@@ -73,7 +77,11 @@ public class ParallelTableProvider implements TableProvider {
                 typeArray[i] = types.get(i);
             }
             tables.put(name, typeArray);
-            return new ParallelTable(name, tablePath, typeArray);
+            try {
+                return new ParallelTable(name, tablePath, tables.get(name));
+            } catch (Exception e) {
+                return null;
+            }
         } finally {
             locker.writeLock().unlock();
         }
